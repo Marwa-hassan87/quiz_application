@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) {
-            return NavbarCategoryPage(initialIndex: 0,);
+            return NavbarCategoryPage(initialIndex: 0);
           },
         ),
       );

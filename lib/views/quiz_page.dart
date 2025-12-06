@@ -88,9 +88,14 @@ class _QuizPageState extends State<QuizPage> {
       });
     } else {
       await _updateScore();
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return ResultPage(score: score,totalQuestions: question.length,);
-      },));
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return ResultPage(score: score, totalQuestions: question.length);
+          },
+        ),
+      );
     }
   }
 
@@ -142,6 +147,7 @@ class _QuizPageState extends State<QuizPage> {
             ),
             SizedBox(height: 20),
             Container(
+              width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 226, 237, 247),
@@ -156,6 +162,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               child: Text(
                 question[currentIndex]['questionText'],
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

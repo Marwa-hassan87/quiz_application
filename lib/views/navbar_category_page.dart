@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_application/views/leaderboard_page.dart';
 import 'package:quiz_application/views/profile_page.dart';
 import 'package:quiz_application/views/quiz_category.dart';
 
@@ -11,12 +12,8 @@ class NavbarCategoryPage extends StatefulWidget {
 }
 
 class _NavbarCategoryPageState extends State<NavbarCategoryPage> {
-  List pages = [
-    QuizCategory(),
-    Scaffold(body: Center(child: Text('Leaderboard'))),
-    ProfilePage(),
-  ];
-  int selectPage = 0;
+  List pages = [QuizCategory(), LeaderboardPage(), ProfilePage()];
+  int selectPage = 1;
   final PageStorageBucket bucket = PageStorageBucket();
   @override
   void initState() {
@@ -29,8 +26,16 @@ class _NavbarCategoryPageState extends State<NavbarCategoryPage> {
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: const Color.fromARGB(255, 114, 114, 114),
         iconSize: 30,
+        unselectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
+        selectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
         currentIndex: selectPage,
         onTap: (value) {
           setState(() {

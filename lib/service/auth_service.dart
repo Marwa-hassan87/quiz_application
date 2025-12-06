@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -8,6 +11,7 @@ class AuthService {
     required String name,
     required String email,
     required String password,
+    Uint8List? profileImage,
   }) async {
     String res = 'Some error occured';
     try {
@@ -16,11 +20,13 @@ class AuthService {
           email: email,
           password: password,
         );
+        String? base65Image= profileImage!=null ? base64Encode(profileImage) : null;
         await _firestore.collection('userData').doc(credential.user!.uid).set({
           'name': name,
           'uid': credential.user!.uid,
-          'email':email,
+          'email': email,
           'score': 0,
+          'photoBase64':base65Image
         });
         res = 'success';
       } else {

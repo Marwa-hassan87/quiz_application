@@ -126,6 +126,7 @@ class ResultPage extends StatelessWidget {
                       buttonText: 'Start new Quiz',
                     ),
                   ),
+                  SizedBox(width: 10),
                   Expanded(
                     child: MyButton(
                       onTap: () {

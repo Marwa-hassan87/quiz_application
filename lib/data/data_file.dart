@@ -178,7 +178,7 @@ final data = {
   },
 
   "Math": {
-    "title": "Mathematics",
+    "title": "Math",
     "image_url": "images/math.jpg",
     "questions": {
       "0": {

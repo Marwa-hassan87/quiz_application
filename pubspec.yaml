@@ -41,7 +41,7 @@ dependencies:
   shared_preferences: ^2.5.3
   path_provider: ^2.1.5
   lottie: ^3.3.2
-
+  font_awesome_flutter: ^10.12.0
 
 dev_dependencies:
   flutter_test:
@@ -75,7 +75,10 @@ flutter:
     - images/dart.jpg
     - images/Login.jpg
     - images/signUp.jpg
-    - images/animations/6793c5a5-0795-4193-92a3-5f3f6dd10316.json
+    # - images/animations/6793c5a5-0795-4193-92a3-5f3f6dd10316.json
+    - images/person1.webp
+    - images/person2.jpg
+    - images/person3.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

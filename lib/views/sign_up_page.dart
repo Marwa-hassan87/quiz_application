@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_application/service/auth_service.dart';
 import 'package:quiz_application/views/login_page.dart';
@@ -24,10 +25,12 @@ class _SignUpPageState extends State<SignUpPage> {
     setState(() {
       isLoading = true;
     });
+    Uint8List? profileImageBytes;
     final result = await authService.signUpUser(
       name: nameController.text,
       email: emailController.text,
       password: passwordController.text,
+      profileImage: profileImageBytes,
     );
     if (result == 'success') {
       setState(() {

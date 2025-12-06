@@ -23,6 +23,12 @@ class _QuizCategoryState extends State<QuizCategory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Categories'),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+      ),
       body: SafeArea(
         bottom: false,
         child: Padding(
