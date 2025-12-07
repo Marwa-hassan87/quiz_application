@@ -42,7 +42,7 @@ class _QuizCategoryState extends State<QuizCategory> {
               if (!snapshot.hasData ||
                   snapshot.hasError ||
                   snapshot.data!.docs.isEmpty) {
-                Center(child: Text('No Categories found'));
+                return Center(child: Text('No Categories found'));
               }
               return GridView.builder(
                 itemCount: snapshot.data!.docs.length,
@@ -69,7 +69,6 @@ class _QuizCategoryState extends State<QuizCategory> {
                     },
                     child: Card(
                       color: colors[index],
-                      // color: colors[index % colors.length],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadiusGeometry.circular(15),
                       ),
