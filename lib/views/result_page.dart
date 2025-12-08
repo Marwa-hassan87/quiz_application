@@ -12,23 +12,6 @@ class ResultPage extends StatelessWidget {
     required this.score,
     required this.totalQuestions,
   });
-  // Future<void> _updateScore() async {
-  //     var user = FirebaseAuth.instance.currentUser;
-  //     if (user == null) return;
-  //     try {
-  //       var userRef = FirebaseFirestore.instance
-  //           .collection('userData')
-  //           .doc(user.uid);
-  //       await FirebaseFirestore.instance.runTransaction((transaction) async {
-  //         var snapshot = await transaction.get(userRef);
-  //         if (!snapshot.exists) return;
-  //         int existingScore = snapshot['score'] ?? 0;
-  //         transaction.update(userRef, {'score': existingScore + score});
-  //       });
-  //     } catch (e) {
-  //       print(e.toString());
-  //     }
-  //   }
   Future<void> updateUserScore() async {
     User? user = FirebaseAuth.instance.currentUser;
     if (user == null) return;

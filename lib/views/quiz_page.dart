@@ -118,7 +118,7 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(question);
+    // print(question);
     if (isLoading) {
       return Scaffold(body: Center(child: CircularProgressIndicator()));
     }

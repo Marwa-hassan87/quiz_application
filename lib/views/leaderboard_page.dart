@@ -39,7 +39,12 @@ class LeaderboardPage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 40, bottom: 20),
+                  padding: EdgeInsets.only(
+                    top: 40,
+                    bottom: 20,
+                    left: 15,
+                    right: 15,
+                  ),
                   height: 300,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -202,6 +207,7 @@ Widget _buildTopUsers(Map<String, dynamic> users, int rank) {
       SizedBox(height: 5),
       Text(
         users['name'],
+        textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
