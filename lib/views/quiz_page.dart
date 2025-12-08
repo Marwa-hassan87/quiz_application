@@ -39,7 +39,7 @@ class _QuizPageState extends State<QuizPage> {
           var questions = data['questions'];
           if (questions is Map<String, dynamic>) {
             var fetchQuestions = questions.entries.map((entry) {
-              var q = entry.value;
+              var q = entry.value; // question as map
               var optionsMap = q['options'] as Map<String, dynamic>;
               var optionList = optionsMap.entries.toList()
                 ..sort((a, b) => int.parse(a.key).compareTo(int.parse(b.key)));
@@ -49,8 +49,7 @@ class _QuizPageState extends State<QuizPage> {
               return {
                 'questionText': q['questionText'] ?? 'No Questions',
                 'options': options,
-                'correctOptionKey':
-                    int.tryParse(q['correctOptionKey'].toString()) ?? 0,
+                'correctOptionKey': int.parse(q['correctOptionKey']),
               };
             }).toList();
             fetchQuestions.shuffle(Random());

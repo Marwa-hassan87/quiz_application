@@ -65,6 +65,7 @@ class LeaderboardPage extends StatelessWidget {
                         itemCount: remainingUsers.length,
                         itemBuilder: (context, index) {
                           return Container(
+                            margin: EdgeInsets.only(bottom: 10),
                             padding: EdgeInsets.symmetric(
                               vertical: 15,
                               horizontal: 20,
