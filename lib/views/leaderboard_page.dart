@@ -183,7 +183,7 @@ Widget _buildTopUsers(Map<String, dynamic> users, int rank) {
               left: 0,
               right: 0,
               top: -20,
-              child: Icon(
+              child: FaIcon(
                 FontAwesomeIcons.crown,
                 size: 30,
                 color: Colors.amber,
