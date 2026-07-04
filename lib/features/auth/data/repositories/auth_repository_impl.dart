@@ -4,9 +4,7 @@ import 'package:quiz_application/core/error/failure.dart';
 import 'package:quiz_application/core/network/network_info.dart';
 import 'package:quiz_application/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:quiz_application/features/auth/data/models/auth_model.dart';
-import 'package:quiz_application/features/auth/data/models/signup_model.dart';
-import 'package:quiz_application/features/auth/domain/entities/auth_entity.dart';
-import 'package:quiz_application/features/auth/domain/entities/signup_entity.dart';
+import 'package:quiz_application/features/auth/domain/entities/user_entity.dart';
 import 'package:quiz_application/features/auth/domain/repositories/auth_repository.dart';
 
 
@@ -20,9 +18,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }) : _remoteDatasource = remoteDatasource,
        _networkInfo = networkInfo;
   @override
-  Future<Either<Failure, Unit>> createUser(AuthEntity entity) async {
+  Future<Either<Failure, Unit>> createUser(UserEntity entity) async {
     if (await _networkInfo.isConnected) {
-      final AuthModel model = AuthModel(
+      final UserModel model = UserModel(
         id: entity.id,
         name: entity.name,
         email: entity.email,
@@ -70,14 +68,10 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, AuthEntity>> signUp(SignupEntity entity) async {
+  Future<Either<Failure, UserEntity>> signUp({required String name,required String email,required String password}) async {
     try {
-      final SignupModel model = SignupModel(
-        name: entity.name,
-        email: entity.email,
-        password: entity.password,
-      );
-      final user = await _remoteDatasource.signUp(model);
+
+      final user = await _remoteDatasource.signUp(name: name,email: email,password: password);
       return Right(user);
     } on ServerException {
       return Left(ServerFailure());

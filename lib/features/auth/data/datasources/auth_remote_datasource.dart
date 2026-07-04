@@ -3,13 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quiz_application/core/error/exception.dart';
 import 'package:quiz_application/features/auth/data/models/auth_model.dart';
-import 'package:quiz_application/features/auth/data/models/signup_model.dart';
 
 abstract class AuthRemoteDatasource {
   Future<Unit> login({required String email, required String password});
-  Future<AuthModel> signUp(SignupModel model);
+  Future<UserModel> signUp({required String name,required String email,required String password});
   Future<Unit> logout();
-  Future<Unit> createUser(AuthModel model);
+  Future<Unit> createUser(UserModel user);
 }
 
 class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
@@ -42,20 +41,20 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   }
 
   @override
-  Future<AuthModel> signUp(SignupModel model) async {
+  Future<UserModel> signUp({required String name,required String email,required String password}) async {
     try {
       final credential = await _auth.createUserWithEmailAndPassword(
-        email: model.email,
-        password: model.password,
+        email: email,
+        password: password,
       );
-      return AuthModel(id: credential.user!.uid as int, name: model.name, email: model.email);
+      return UserModel(id: credential.user!.uid as int, name: name, email: email);
     } catch (e) {
       throw ServerException();
     }
   }
 
   @override
-  Future<Unit> createUser(AuthModel model) async {
+  Future<Unit> createUser(UserModel model) async {
     try {
       await _firestore
           .collection('userData')

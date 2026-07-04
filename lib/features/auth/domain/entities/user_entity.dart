@@ -1,13 +1,13 @@
 import 'dart:io';
 
-class AuthEntity {
+class UserEntity {
   final int id;
   final String name;
   final String email;
   final File? photo;
   final int? score;
 
-  AuthEntity({
+  UserEntity({
     required this.id,
     required this.name,
     required this.email,

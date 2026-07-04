@@ -1,15 +1,15 @@
-import 'package:quiz_application/features/auth/domain/entities/auth_entity.dart';
+import 'package:quiz_application/features/auth/domain/entities/user_entity.dart';
 
-class AuthModel extends AuthEntity {
-  AuthModel({
+class UserModel extends UserEntity {
+  UserModel({
     required super.id,
     required super.name,
     required super.email,
      super.photo,
      super.score,
   });
-  factory AuthModel.fromJson(Map<String, dynamic> jsonData) {
-    return AuthModel(
+  factory UserModel.fromJson(Map<String, dynamic> jsonData) {
+    return UserModel(
       id: jsonData['id'],
       name: jsonData['name'],
       email: jsonData['email'],
@@ -17,7 +17,7 @@ class AuthModel extends AuthEntity {
       score: jsonData['score'] ?? 0 ,
     );
   }
-  Map<String, dynamic> toJson(AuthModel model) {
+  Map<String, dynamic> toJson(UserModel model) {
     return {
       'uid': model.id,
       'name': model.name,

@@ -8,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:quiz_application/features/auth/presentation/screens/login_screen.dart';
 import 'package:quiz_application/views/login_page.dart';
 import 'package:quiz_application/widgets/my_button.dart';
 import 'package:quiz_application/widgets/snakbar_widget.dart';
@@ -93,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return LoginPage();
+          return LoginScreen();
         },
       ),
     );
